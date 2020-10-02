@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
+//Importamos fichero de rutas
+const demo_routes_1 = __importDefault(require("./routes/demo.routes"));
 //initializations
 const app = express_1.default();
 //settings
@@ -18,8 +20,9 @@ app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
 //routes
 //Cuando le llegue una peticion de tipo GET mostrará ese mensaje
-app.get('/', (req, res) => {
+/*app.get('/', (req,res) => {
     return res.send(`The API is at http://localhost:${app.get('port')}`);
-});
+});*/
+app.use(demo_routes_1.default);
 //exportamos fichero como 'app'
 exports.default = app;
