@@ -21,5 +21,6 @@ app.get('/', (req,res) => {
     return res.send(`The API is at http://localhost:${app.get('port')}`);
 })
 
+
 //exportamos fichero como 'app'
 export default app;
