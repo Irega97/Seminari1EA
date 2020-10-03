@@ -8,7 +8,7 @@ const demoSchema = new Schema({
     }
 });
 
-//Interfaz para tratar respuesta
+//Interfaz para tratar respuesta como documento
 export interface IDemo extends Document {
     name: string;
 }

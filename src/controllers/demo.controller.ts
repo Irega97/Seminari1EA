@@ -1,6 +1,9 @@
 //Aqui definimos que hace la app cuando le llega la peticion
 import {Request, Response} from "express";
+import { mongoose } from "mongoose";
 import Demo from "../models/demo"
+
+//var Demo = mongoose.model('Demo', demoSchema); ????????
 
 //Hacemos una busqueda en la BBDD de todo lo que hay en demo
 //Es una busqueda asincrona, por eso usamos el await
