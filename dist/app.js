@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 //Importamos fichero de rutas
-const demo_routes_1 = __importDefault(require("./routes/demo.routes"));
+const user_routes_1 = __importDefault(require("./routes/user.routes"));
 //initializations
 const app = express_1.default();
 //settings
@@ -23,6 +23,6 @@ app.use(express_1.default.json());
 /*app.get('/', (req,res) => {
     return res.send(`The API is at http://localhost:${app.get('port')}`);
 });*/
-app.use(demo_routes_1.default);
+app.use(user_routes_1.default);
 //exportamos fichero como 'app'
 exports.default = app;

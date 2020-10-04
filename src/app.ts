@@ -3,7 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 
 //Importamos fichero de rutas
-import demoRoutes from './routes/demo.routes'
+import userRoutes from './routes/user.routes'
 
 //initializations
 const app = express();
@@ -24,7 +24,7 @@ app.use(express.json());
     return res.send(`The API is at http://localhost:${app.get('port')}`);
 });*/
 
-app.use(demoRoutes);
+app.use(userRoutes);
 
 //exportamos fichero como 'app'
 export default app;

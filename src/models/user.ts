@@ -2,16 +2,16 @@
 import { model, Schema, Document} from 'mongoose';
 
 //Modelo de objeto que se guarda en la BBDD de MongoDB
-const demoSchema = new Schema({
+const userSchema = new Schema({
     name: {
         type: String
     }
 });
 
 //Interfaz para tratar respuesta como documento
-export interface IDemo extends Document {
+export interface IUser extends Document {
     name: string;
 }
 
 //Exportamos modelo para poder usarlo
-export default model<IDemo>('Demo', demoSchema);
+export default model<IUser>('User', userSchema);
