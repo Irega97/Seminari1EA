@@ -26,8 +26,10 @@ function getUsers(req:Request, res:Response):void {
 function postUserDemo (req: Request, res: Response): void {
     const name: string = req.body.name;
     const user = new User({name});
+    console.log("El nombre es",name);
+    console.log(req.body);
     user.save().then((data) => {
-         return res.status(201).json(data);
+        return res.status(201).json(data);
     }).catch((err) => {
         return res.status(500).json(err);
     })
