@@ -11,7 +11,8 @@ const router = Router();
 /* import { getUsers } from "../controllers/user.controller"; */
 
 //Peticiones HTTP
-router.get('/' /*RUTA*/, userController.getUsers /*FUNCION DEL CONTROLADOR*/);
+router.get('/user/' /*RUTA*/, userController.getUsers /*FUNCION DEL CONTROLADOR*/);
+router.get('/user/:nombre', userController.getUser);
 router.post('/register', userController.postUserDemo);
 
 //Exportamos router para usar rutas en app.ts

@@ -23,10 +23,27 @@ function getUsers(req, res) {
         return res.status(500).json(err);
     });
 }
+function getUser(req, res) {
+    user_1.default.find({ "nombre": req.params.nombre }).then((data) => {
+        let status = 200;
+        if (data == null)
+            status = 404;
+        console.log(data);
+        return res.status(status).json(data);
+    }).catch((err) => {
+        return res.status(500).json(err);
+    });
+}
 function postUserDemo(req, res) {
-    const name = req.body.name;
-    const user = new user_1.default({ name });
-    console.log("El nombre es", name);
+    const user = new user_1.default({
+        "nombre": req.body.nombre,
+        "apellidos": req.body.apellidos,
+        "edad": req.body.edad,
+        "correo": req.body.correo,
+        "telefono": req.body.telefono,
+        "grado": req.body.grado
+    });
+    console.log("El nombre es", req.body.nombre);
     console.log(req.body);
     user.save().then((data) => {
         return res.status(201).json(data);
@@ -34,4 +51,4 @@ function postUserDemo(req, res) {
         return res.status(500).json(err);
     });
 }
-exports.default = { getUsers, postUserDemo };
+exports.default = { getUsers, getUser, postUserDemo };

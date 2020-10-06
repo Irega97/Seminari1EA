@@ -13,7 +13,8 @@ const router = express_1.Router();
 //cuando hagamos la peticion
 /* import { getUsers } from "../controllers/user.controller"; */
 //Peticiones HTTP
-router.get('/' /*RUTA*/, user_controller_1.default.getUsers /*FUNCION DEL CONTROLADOR*/);
+router.get('/user/' /*RUTA*/, user_controller_1.default.getUsers /*FUNCION DEL CONTROLADOR*/);
+router.get('/user/:nombre', user_controller_1.default.getUser);
 router.post('/register', user_controller_1.default.postUserDemo);
 //Exportamos router para usar rutas en app.ts
 exports.default = router;

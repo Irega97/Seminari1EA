@@ -4,7 +4,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 //Modelo de objeto que se guarda en la BBDD de MongoDB
 const userSchema = new mongoose_1.Schema({
-    name: {
+    nombre: {
+        type: String
+    },
+    apellidos: {
+        type: String
+    },
+    edad: {
+        type: Number
+    },
+    correo: {
+        type: String
+    },
+    telefono: {
+        type: Number
+    },
+    grado: {
         type: String
     }
 });

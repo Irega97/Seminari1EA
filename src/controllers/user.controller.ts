@@ -23,10 +23,26 @@ function getUsers(req:Request, res:Response):void {
     })
 }
 
+function getUser(req:Request, res:Response):void {
+    User.find({"nombre":req.params.nombre}).then((data)=>{
+        let status: number = 200;
+        if(data==null) status = 404;
+        console.log(data);
+        return res.status(status).json(data);
+    }).catch((err) => {
+        return res.status(500).json(err);
+    })
+}
+
 function postUserDemo (req: Request, res: Response): void {
-    const name: string = req.body.name;
-    const user = new User({name});
-    console.log("El nombre es",name);
+    const user = new User({
+        "nombre": req.body.nombre,
+        "apellidos": req.body.apellidos,
+        "edad": req.body.edad,
+        "correo": req.body.correo,
+        "telefono": req.body.telefono,
+        "grado": req.body.grado});
+    console.log("El nombre es",req.body.nombre);
     console.log(req.body);
     user.save().then((data) => {
         return res.status(201).json(data);
@@ -35,4 +51,4 @@ function postUserDemo (req: Request, res: Response): void {
     })
 }
 
-export default { getUsers, postUserDemo };
+export default { getUsers, getUser, postUserDemo };
