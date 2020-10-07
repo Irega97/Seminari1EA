@@ -18,9 +18,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 //Interfaces
 const mongoose_1 = __importStar(require("mongoose"));
+const course_1 = __importDefault(require("./course"));
 //Modelo de objeto que se guarda en la BBDD de MongoDB
 const userSchema = new mongoose_1.Schema({
     nombre: {
@@ -43,7 +47,7 @@ const userSchema = new mongoose_1.Schema({
     },
     courses: [{
             type: mongoose_1.Schema.Types.ObjectId,
-            ref: 'Course'
+            ref: course_1.default
         }]
 });
 //Exportamos modelo para poder usarlo

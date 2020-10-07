@@ -1,3 +1,6 @@
+//RECETA DE COCINA
+//Establecer conexión con la BBDD de MongoDB
+
 import mongoose, { ConnectionOptions } from 'mongoose';
 import config from './config/config';
 

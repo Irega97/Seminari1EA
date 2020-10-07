@@ -14,7 +14,7 @@ const user_1 = __importDefault(require("../models/user"));
     return res.status(400).json(results);
 } */
 function getUsers(req, res) {
-    user_1.default.find({}).then((data) => {
+    user_1.default.find({}).populate('courses').then((data) => {
         let status = 200;
         if (data == null)
             status = 404;

@@ -1,3 +1,4 @@
+//FICHERO EJECUCIÓN DEL PROYECTO
 import app from './app'; //app exportada en app.ts
 //Ejecutamos la conexion a la BBDD antes de escuchar al server
 import './database'; 

@@ -1,6 +1,6 @@
 //Interfaces
 import mongoose, { Schema, Document} from 'mongoose';
-import { ICourse } from './course';
+import Course, { ICourse } from './course';
 
 //Interfaz para tratar respuesta como documento
 export interface IUser extends Document {
@@ -10,7 +10,7 @@ export interface IUser extends Document {
     correo: string;
     telefono: number;
     grado: string;
-    courses: ICourse['_id'];
+    courses: ICourse['_id']; //Relacion con la coleccion courses
 }
 
 //Modelo de objeto que se guarda en la BBDD de MongoDB
@@ -35,7 +35,7 @@ const userSchema = new Schema({
     },
     courses: [{
         type: Schema.Types.ObjectId,
-        ref: 'Course'
+        ref: Course
     }]
 });
 

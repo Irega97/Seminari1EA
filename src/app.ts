@@ -1,3 +1,4 @@
+//Importamos dependencias
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -6,10 +7,10 @@ import bodyParser from'body-parser';
 //Importamos fichero de rutas
 import userRoutes from './routes/user.routes'
 
-//initializations
+//Inicializamos express
 const app = express();
 
-//settings
+//Configuración
 //Cuando haya variable de entorno sera PORT y sino 3000
 app.set('port', process.env.PORT || 3000);
 
@@ -20,13 +21,8 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(bodyParser.json());
 
-//routes
-//Cuando le llegue una peticion de tipo GET mostrará ese mensaje
-/*app.get('/', (req,res) => {
-    return res.send(`The API is at http://localhost:${app.get('port')}`);
-});*/
-
+//Llama a las rutas de la API
 app.use(userRoutes);
 
-//exportamos fichero como 'app'
+//Exportamos fichero como 'app'
 export default app;

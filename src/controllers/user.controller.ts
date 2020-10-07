@@ -1,10 +1,5 @@
-//Aqui definimos que hace la app cuando le llega la peticion
-import {request, Request, Response} from "express";
-import { Schema } from "mongoose";
+import { Request, Response } from "express";
 import User from "../models/user"
-import Course from "../models/course"
-
-//var Demo = mongoose.model('Demo', demoSchema); ????????
 
 //Hacemos una busqueda en la BBDD de todo lo que hay en demo
 //Es una busqueda asincrona, por eso usamos el await
@@ -15,8 +10,8 @@ import Course from "../models/course"
     return res.status(400).json(results);
 } */
 
-function getUsers(req:Request, res:Response):void {
-    User.find({}).then((data)=>{
+function getUsers(req:Request, res:Response): void {
+    User.find({}).populate('courses').then((data)=>{
         let status: number = 200;
         if(data==null) status = 404;
         console.log(data);
@@ -27,7 +22,7 @@ function getUsers(req:Request, res:Response):void {
     })
 }
 
-function getUser(req:Request, res:Response):void {
+function getUser(req:Request, res:Response): void {
     User.find({"nombre":req.params.nombre}).populate('courses').then((data)=>{
         let status: number = 200;
         if(data==null) status = 404;
@@ -39,8 +34,6 @@ function getUser(req:Request, res:Response):void {
 }
 
 function postUserDemo (req: Request, res: Response): void {
-    /* let courses = [];
-    courses.push(req.body.courses); */
     const user = new User({
         "nombre": req.body.nombre,
         "apellidos": req.body.apellidos,

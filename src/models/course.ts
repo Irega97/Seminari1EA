@@ -1,5 +1,4 @@
 import mongoose, { Schema, Document} from 'mongoose';
-import { IUser } from './user'
 
 //Modelo de objeto que se guarda en la BBDD de MongoDB
 const courseSchema = new Schema({
