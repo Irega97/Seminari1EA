@@ -1,6 +1,8 @@
 //Aqui definimos que hace la app cuando le llega la peticion
 import {request, Request, Response} from "express";
+import { Schema } from "mongoose";
 import User from "../models/user"
+import Course from "../models/course"
 
 //var Demo = mongoose.model('Demo', demoSchema); ????????
 
@@ -17,14 +19,16 @@ function getUsers(req:Request, res:Response):void {
     User.find({}).then((data)=>{
         let status: number = 200;
         if(data==null) status = 404;
+        console.log(data);
         return res.status(status).json(data);
     }).catch((err) => {
+        console.log(err);
         return res.status(500).json(err);
     })
 }
 
 function getUser(req:Request, res:Response):void {
-    User.find({"nombre":req.params.nombre}).then((data)=>{
+    User.find({"nombre":req.params.nombre}).populate('courses').then((data)=>{
         let status: number = 200;
         if(data==null) status = 404;
         console.log(data);
@@ -35,13 +39,17 @@ function getUser(req:Request, res:Response):void {
 }
 
 function postUserDemo (req: Request, res: Response): void {
+    /* let courses = [];
+    courses.push(req.body.courses); */
     const user = new User({
         "nombre": req.body.nombre,
         "apellidos": req.body.apellidos,
         "edad": req.body.edad,
         "correo": req.body.correo,
         "telefono": req.body.telefono,
-        "grado": req.body.grado});
+        "grado": req.body.grado,
+        "courses": req.body.courses
+    });
     console.log("El nombre es",req.body.nombre);
     console.log(req.body);
     user.save().then((data) => {
