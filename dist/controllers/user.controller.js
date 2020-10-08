@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_1 = __importDefault(require("../models/user"));
-//var Demo = mongoose.model('Demo', demoSchema); ????????
 //Hacemos una busqueda en la BBDD de todo lo que hay en demo
 //Es una busqueda asincrona, por eso usamos el await
 /* export const getUsers = async (req: Request, res: Response) => {
@@ -37,8 +36,6 @@ function getUser(req, res) {
     });
 }
 function postUserDemo(req, res) {
-    /* let courses = [];
-    courses.push(req.body.courses); */
     const user = new user_1.default({
         "nombre": req.body.nombre,
         "apellidos": req.body.apellidos,

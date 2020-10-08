@@ -1,4 +1,6 @@
 "use strict";
+//RECETA DE COCINA
+//Establecer conexión con la BBDD de MongoDB
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };

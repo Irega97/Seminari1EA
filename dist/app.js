@@ -3,15 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+//Importamos dependencias
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const body_parser_1 = __importDefault(require("body-parser"));
 //Importamos fichero de rutas
 const user_routes_1 = __importDefault(require("./routes/user.routes"));
-//initializations
+//Inicializamos express
 const app = express_1.default();
-//settings
+//Configuración
 //Cuando haya variable de entorno sera PORT y sino 3000
 app.set('port', process.env.PORT || 3000);
 //middlewares
@@ -20,11 +21,7 @@ app.use(cors_1.default());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
 app.use(body_parser_1.default.json());
-//routes
-//Cuando le llegue una peticion de tipo GET mostrará ese mensaje
-/*app.get('/', (req,res) => {
-    return res.send(`The API is at http://localhost:${app.get('port')}`);
-});*/
+//Llama a las rutas de la API
 app.use(user_routes_1.default);
-//exportamos fichero como 'app'
+//Exportamos fichero como 'app'
 exports.default = app;
