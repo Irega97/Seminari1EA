@@ -28,7 +28,7 @@ Demo de un Backend simple para el seminario 1 de EA en el que se pueden gestiona
 
 - node.js (Entorno de ejecución de JavaScript)
 - express (Framework de servidor web para API-REST)
-- mongoose (Interfaz conexión con MongoDB)
+- mongoose (Libreria JS conexión con MongoDB)
 - typescript (Superconjunto de JavaScript)
 - cors (Comunicación entre servidores)
 - morgan (Mostrar peticiones y respuestas en consola)

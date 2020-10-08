@@ -6,6 +6,7 @@ import bodyParser from'body-parser';
 
 //Importamos fichero de rutas
 import userRoutes from './routes/user.routes'
+import courseRoutes from './routes/course.routes'
 
 //Inicializamos express
 const app = express();
@@ -23,6 +24,7 @@ app.use(bodyParser.json());
 
 //Llama a las rutas de la API
 app.use(userRoutes);
+app.use(courseRoutes);
 
 //Exportamos fichero como 'app'
 export default app;
