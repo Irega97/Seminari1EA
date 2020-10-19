@@ -53,4 +53,27 @@ function postUserDemo(req, res) {
         return res.status(500).json(err);
     });
 }
-exports.default = { getUsers, getUser, postUserDemo };
+function updateUser(req, res) {
+    const id = req.params.id;
+    const nombre = req.body.nombre;
+    const apellidos = req.body.apellidos;
+    const edad = req.body.edad;
+    const correo = req.body.correo;
+    const telefono = req.body.telefono;
+    const grado = req.body.grado;
+    const courses = req.body.courses;
+    user_1.default.update({ "_id": id }, { $set: { "nombre": nombre, "apellidos": apellidos, "edad": edad,
+            "correo": correo, "telefono": telefono, "grado": grado, "courses": courses } }).then((data) => {
+        res.status(201).json(data);
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
+}
+function deleteUser(req, res) {
+    user_1.default.deleteOne({ "_id": req.params.id }).then((data) => {
+        res.status(200).json(data);
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
+}
+exports.default = { getUsers, getUser, postUserDemo, updateUser, deleteUser };

@@ -10,6 +10,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const body_parser_1 = __importDefault(require("body-parser"));
 //Importamos fichero de rutas
 const user_routes_1 = __importDefault(require("./routes/user.routes"));
+const course_routes_1 = __importDefault(require("./routes/course.routes"));
 //Inicializamos express
 const app = express_1.default();
 //Configuración
@@ -23,5 +24,6 @@ app.use(express_1.default.json());
 app.use(body_parser_1.default.json());
 //Llama a las rutas de la API
 app.use(user_routes_1.default);
+app.use(course_routes_1.default);
 //Exportamos fichero como 'app'
 exports.default = app;
